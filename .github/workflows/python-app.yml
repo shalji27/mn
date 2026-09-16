@@ -1,15 +1,16 @@
-name: Flask CI
+name: Python Application
+
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
-
-permissions:
-  contents: read
+    branches:
+      - main
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -29,3 +30,7 @@ jobs:
       - name: Check Python syntax
         run: |
           python -m py_compile app.py
+
+      - name: Run Python program
+        run: |
+          python app.py
